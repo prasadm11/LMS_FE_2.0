@@ -155,3 +155,36 @@
   visibility: visible;
   opacity: 1;
 }
+
+/* Responsive Member Profile Styles */
+@media (max-width: 768px) {
+  .profile-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .profile-title-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .profile-name {
+    font-size: 2rem;
+  }
+  
+  .profile-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  
+  .profile-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+

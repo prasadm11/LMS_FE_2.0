@@ -113,7 +113,7 @@ export default function Dashboard() {
             </div>
 
             <div className="dashboard-sections" style={{ marginTop: '2rem' }}>
-              <div className="glass-panel" style={{ padding: '1.5rem' }}>
+              <div className="glass-panel user-history-panel">
                 <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Clock size={20} className="text-accent" /> Borrowing History
                 </h3>
@@ -294,8 +294,8 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div className="charts-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
-                <div className="chart-card glass-panel" style={{ padding: '2rem', height: '400px', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div className="charts-grid">
+                <div className="chart-card glass-panel">
                   <h3 style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '1.1rem', fontWeight: 600 }}>
                     <BarChart2 size={20} style={{ color: 'var(--accent-blue)' }} /> Borrowing Distribution
                   </h3>
@@ -342,7 +342,7 @@ export default function Dashboard() {
                   </ResponsiveContainer>
                 </div>
 
-                <div className="chart-card glass-panel" style={{ padding: '2rem', height: '400px', border: '1px solid rgba(255,255,255,0.08)', position: 'relative' }}>
+                <div className="chart-card glass-panel relative-chart">
                   <h3 style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '1.1rem', fontWeight: 600 }}>
                     <PieChartIcon size={20} style={{ color: 'var(--accent-blue)' }} /> Book Availability
                   </h3>
@@ -400,7 +400,7 @@ export default function Dashboard() {
             </>
           )}
 
-          <div className="dashboard-sections" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
+          <div className="dashboard-sections grid-sections">
             {overdueBooks.length > 0 && (
               <div className="overdue-alerts glass-panel" style={{ padding: '1.5rem' }}>
                 <h3 style={{ color: '#ef4444', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

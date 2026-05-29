@@ -24,3 +24,40 @@
   /* Scrollbar offset */
   margin-right: -0.5rem;
 }
+
+/* Sidebar overlay backdrop for mobile navigation drawer */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 99;
+  animation: fadeInOverlay 0.3s ease;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .layout-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .main-wrapper {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    padding: 0.5rem;
+    gap: 0.5rem;
+    height: 100dvh; /* Adjust for mobile viewport browsers */
+  }
+}

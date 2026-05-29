@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Header from './Header';
@@ -11,11 +12,16 @@ import LoginModal from './LoginModal';
 import './Layout.css';
 
 export default function Layout() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <div className="layout-container">
-      <Sidebar />
+      {isSidebarOpen && (
+        <div className="sidebar-overlay" onClick={() => setIsSidebarOpen(false)} />
+      )}
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <div className="main-wrapper">
-        <Header />
+        <Header onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
         <main className="main-content">
           <Outlet />
         </main>
@@ -30,3 +36,4 @@ export default function Layout() {
     </div>
   );
 }
+

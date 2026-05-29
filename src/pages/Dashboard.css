@@ -246,3 +246,49 @@
   font-weight: 500;
   color: var(--text-secondary);
 }
+
+/* Responsive Dashboard Styles */
+.user-history-panel {
+  padding: 1.5rem;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.chart-card {
+  padding: 2rem;
+  height: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chart-card.relative-chart {
+  position: relative;
+}
+
+.dashboard-sections.grid-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .charts-grid,
+  .dashboard-sections.grid-sections {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .chart-card {
+    padding: 1.25rem 1rem;
+    height: 350px;
+  }
+  
+  .user-history-panel {
+    padding: 1rem;
+  }
+}

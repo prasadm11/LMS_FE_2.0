@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Search, Bell, AlertCircle, Info, Filter, UserPlus, BookPlus } from 'lucide-react';
+import { Search, Bell, AlertCircle, Info, Filter, UserPlus, BookPlus, Menu } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLibrary } from '../context/LibraryContext';
 import './Header.css';
 
-export default function Header() {
+interface HeaderProps {
+  onToggleSidebar: () => void;
+}
+
+export default function Header({ onToggleSidebar }: HeaderProps) {
   const {
     setAddModalOpen, currentUser, searchBooks,
     notifications, markAllAsRead, setLoginModalOpen, fetchNotifications, setAddMemberModalOpen
@@ -45,6 +49,10 @@ export default function Header() {
 
   return (
     <header className="header glass-panel">
+      <button className="menu-toggle-btn" onClick={onToggleSidebar} aria-label="Toggle navigation menu">
+        <Menu size={24} />
+      </button>
+
       <div className="search-bar">
         <Search size={20} className="search-icon" />
         <input
@@ -60,7 +68,7 @@ export default function Header() {
         {currentUser?.role === 'Admin' && location.pathname === '/catalog' && (
           <button className="btn btn-primary" onClick={() => setAddModalOpen(true)}>
             <BookPlus size={18} />
-            New Book
+            <span className="btn-text">New Book</span>
           </button>
         )}
         {location.pathname === '/catalog' && (
@@ -72,7 +80,7 @@ export default function Header() {
         {currentUser?.role === 'Admin' && location.pathname === '/members' && (
           <button className="btn btn-primary" onClick={() => setAddMemberModalOpen(true)}>
             <UserPlus size={18} />
-            New Member
+            <span className="btn-text">New Member</span>
           </button>
         )}
         {currentUser ? (
@@ -147,3 +155,4 @@ export default function Header() {
     </header>
   );
 }
+

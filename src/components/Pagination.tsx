@@ -31,7 +31,7 @@ export default function Pagination({ currentPage, onPageChange, hasNextPage, isL
         onClick={() => onPageChange(currentPage - 1)}
       >
         <ChevronLeft size={16} />
-        Previous
+        <span className="pagination-btn-text">Previous</span>
       </button>
       
       <span className="pagination-current">
@@ -43,7 +43,7 @@ export default function Pagination({ currentPage, onPageChange, hasNextPage, isL
         disabled={!hasNextPage || isLoading}
         onClick={() => onPageChange(currentPage + 1)}
       >
-        Next
+        <span className="pagination-btn-text">Next</span>
         <ChevronRight size={16} />
       </button>
     </div>

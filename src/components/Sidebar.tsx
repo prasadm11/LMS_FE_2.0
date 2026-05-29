@@ -1,9 +1,14 @@
 import { NavLink } from 'react-router-dom';
-import { BookOpen, LayoutDashboard, Library, Users, Settings as SettingsIcon, LogOut, Clock, Inbox, Sun, Moon, BookMarked } from 'lucide-react';
+import { BookOpen, LayoutDashboard, Library, Users, Settings as SettingsIcon, LogOut, Clock, Inbox, Sun, Moon, BookMarked, X } from 'lucide-react';
 import { useLibrary } from '../context/LibraryContext';
 import './Sidebar.css';
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const { settings, updateSettings, currentUser, logout } = useLibrary();
 
   const adminNavItems = [
@@ -29,12 +34,15 @@ export default function Sidebar() {
   const navItems = !currentUser ? publicNavItems : currentUser.role === 'Admin' ? adminNavItems : userNavItems;
 
   return (
-    <aside className="sidebar glass-panel">
+    <aside className={`sidebar glass-panel ${isOpen ? 'open' : ''}`}>
       <div className="logo-container">
         <div className="logo-icon">
           <BookOpen size={24} color="var(--accent-blue)" />
         </div>
         <span className="logo-text">{settings.libraryName}</span>
+        <button className="sidebar-close-btn" onClick={onClose} aria-label="Close sidebar">
+          <X size={20} />
+        </button>
       </div>
 
       <nav className="sidebar-nav">
@@ -43,6 +51,7 @@ export default function Sidebar() {
             key={item.path}
             to={item.path}
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            onClick={onClose}
           >
             {item.icon}
             <span>{item.name}</span>
@@ -87,3 +96,4 @@ export default function Sidebar() {
     </aside>
   );
 }
+

@@ -73,7 +73,7 @@ export default function AddMemberModal() {
         </div>
 
         <form onSubmit={handleSubmit} className="add-book-form">
-          <div className="form-row" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
+          <div className="form-row">
             <div className="form-group">
               <label>First Name</label>
               <input type="text" className="input-glass" value={firstName} onChange={e => setFirstName(e.target.value)} required />
@@ -84,7 +84,7 @@ export default function AddMemberModal() {
             </div>
           </div>
 
-          <div className="form-row" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
+          <div className="form-row">
             <div className="form-group">
               <label>Username</label>
               <input type="text" className="input-glass" value={username} onChange={e => setUsername(e.target.value)} required />
@@ -95,7 +95,7 @@ export default function AddMemberModal() {
             </div>
           </div>
 
-          <div className="form-row" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
+          <div className="form-row">
             <div className="form-group">
               <label>City</label>
               <input type="text" className="input-glass" value={city} onChange={e => setCity(e.target.value)} />

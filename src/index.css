@@ -297,3 +297,10 @@ p {
   background: rgba(245, 158, 11, 0.1);
   color: #f59e0b;
 }
+
+/* Responsive Table Wrapper Utility */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
