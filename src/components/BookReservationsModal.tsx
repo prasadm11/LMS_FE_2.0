@@ -98,10 +98,10 @@ export default function BookReservationsModal({ isOpen, onClose, bookId, bookTit
               <div style={{ flex: 1 }}>
                 {reservations.map((res) => (
                   <div key={res.reservationId} className="reservation-item">
-                    <img 
-                      src={res.profileImageUrl || `https://i.pravatar.cc/150?u=${res.userId}`} 
-                      alt={res.userName} 
-                      className="reservation-user-avatar" 
+                    <img
+                      src={res.profileImageUrl || `https://i.pravatar.cc/150?u=${res.userId}`}
+                      alt={res.userName}
+                      className="reservation-user-avatar"
                     />
                     <div className="reservation-user-info">
                       <div className="reservation-user-name">{res.userName || 'Unknown User'}</div>
@@ -114,9 +114,9 @@ export default function BookReservationsModal({ isOpen, onClose, bookId, bookTit
                 ))}
               </div>
             )}
-            
+
             {(reservations.length > 0 || currentPage > 1) && (
-              <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+              <div style={{ marginTop: 'auto', paddingTop: '0.5rem' }}>
                 <Pagination
                   currentPage={currentPage}
                   onPageChange={setCurrentPage}

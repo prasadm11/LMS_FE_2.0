@@ -5,8 +5,10 @@
 
 .books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Smaller min-width for smaller cards */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  /* Smaller min-width for smaller cards */
   gap: 1.5rem;
+  padding-bottom: 0.5rem;
   justify-content: center;
   align-content: start;
 }
